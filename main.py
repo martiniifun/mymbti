@@ -1,12 +1,13 @@
 import streamlit as st
 
+# ⚙️ 페이지 설정은 **가장 먼저** 호출해야 해!
+st.set_page_config(page_title="MBTI Guess Quiz", page_icon="🧠", layout="centered")
+
 """
 간단 MBTI 추정 퀴즈 – Streamlit 예시
 Run:
     streamlit run mbti_quiz_app.py
 """
-
-st.set_page_config(page_title="MBTI Guess Quiz", page_icon="🧠", layout="centered")
 
 st.title("🧠 MBTI 추정 퀴즈")
 st.caption("몇 가지 쉽고 재미있는 질문으로 너의 MBTI 를 추정해볼게!")
