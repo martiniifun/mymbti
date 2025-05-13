@@ -59,8 +59,8 @@ QUESTIONS = [
     {
         "text": "칭찬을 받을 때 더 뿌듯한 말은?",
         "choices": {
-            "🧠 """'정말 똑똑하네!'""": "T",
-            "🤗 """'정말 배려심 있네!'""": "F",
+            "🧠 '정말 똑똑하네!'": "T",
+            "🤗 '정말 배려심 있네!'": "F",
         },
         "dim": "T",
     },
@@ -117,23 +117,11 @@ if submitted:
 
     # 세부 점수 시각화
     st.write("### 세부 점수")
-    colA, colB = st.columns(4)
-    with colA:
-        st.progress(score["E"] / 2, text=f"E {score['E']} / 2")
-    with colB:
-        st.progress(score["I"] / 2, text=f"I {score['I']} / 2")
-    with colA:
-        st.progress(score["S"] / 2, text=f"S {score['S']} / 2")
-    with colB:
-        st.progress(score["N"] / 2, text=f"N {score['N']} / 2")
-    with colA:
-        st.progress(score["T"] / 2, text=f"T {score['T']} / 2")
-    with colB:
-        st.progress(score["F"] / 2, text=f"F {score['F']} / 2")
-    with colA:
-        st.progress(score["J"] / 2, text=f"J {score['J']} / 2")
-    with colB:
-        st.progress(score["P"] / 2, text=f"P {score['P']} / 2")
+    traits = ["E", "I", "S", "N", "T", "F", "J", "P"]
+    cols = st.columns(4)
+    for i, trait in enumerate(traits):
+        with cols[i % 4]:
+            st.progress(score[trait] / 2, text=f"{trait} {score[trait]} / 2")
 
     st.write("---")
     st.info("👉 결과는 재미로만 보자! 정확한 MBTI 검사는 전문 검사를 추천해.")
